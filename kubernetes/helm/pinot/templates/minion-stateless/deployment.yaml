@@ -53,7 +53,11 @@ spec:
       - name: minion-stateless
         securityContext:
           {{- toYaml .Values.minionStateless.securityContext | nindent 10 }}
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        {{- if .Values.minionStateless.tag }} 
+        image: "{{ .Values.image.repository }}:{{ .Values.minionStateless.tag}}"
+        {{ else }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag}}" 
+        {{ end }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         args: [
           "{{ .Values.minionStateless.startCommand }}",
