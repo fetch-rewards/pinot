@@ -58,10 +58,10 @@ spec:
       - name: minion
         securityContext:
           {{- toYaml .Values.minion.securityContext | nindent 10 }}
-        {{- if .Values.minion.tag }} 
+        {{- if .Values.minion.tag }}
         image: "{{ .Values.image.repository }}:{{ .Values.minion.tag}}"
         {{ else }}
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag}}" 
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag}}"
         {{ end }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         args: [
