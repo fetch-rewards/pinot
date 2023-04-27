@@ -59,9 +59,9 @@ spec:
           {{- toYaml .Values.controller.securityContext | nindent 10 }}
         {{- if .Values.controller.tag }}
         image: "{{ .Values.image.repository }}:{{ .Values.controller.tag}}"
-        {{ else }}
+        {{- else }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag}}"
-        {{ end }}
+        {{- end }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         args: [ "{{ .Values.controller.startCommand }}", "-configFileName", "/var/pinot/controller/config/pinot-controller.conf" ]
         env:

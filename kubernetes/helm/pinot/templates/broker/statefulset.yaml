@@ -59,9 +59,9 @@ spec:
           {{- toYaml .Values.broker.securityContext | nindent 10 }}
         {{- if .Values.broker.tag }}
         image: "{{ .Values.image.repository }}:{{ .Values.broker.tag}}"
-        {{ else }}
+        {{- else }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag}}"
-        {{ end }}
+        {{- end }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         args: [
           "{{ .Values.broker.startCommand }}",
