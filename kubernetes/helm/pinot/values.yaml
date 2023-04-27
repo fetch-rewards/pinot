@@ -116,6 +116,10 @@ controller:
     nodePort: ""
     protocol: TCP
     name: controller
+    extraPorts: []
+      # - containerPort: 1234
+      #   protocol: PROTOCOL
+      #   name: extra-port
 
   external:
     enabled: true
@@ -216,6 +220,10 @@ broker:
     port: 8099
     name: broker
     nodePort: ""
+    extraPorts: []
+      # - containerPort: 1234
+      #   protocol: PROTOCOL
+      #   name: extra-port
 
   external:
     enabled: true
@@ -326,6 +334,10 @@ server:
     adminPortName: admin
     nodePort: ""
     protocol: TCP
+    extraPorts: []
+      # - containerPort: 1234
+      #   protocol: PROTOCOL
+      #   name: extra-port
 
   resources:
     requests:
@@ -410,6 +422,10 @@ minion:
     nodePort: ""
     protocol: TCP
     name: minion
+    extraPorts: []
+      # - containerPort: 1234
+      #   protocol: PROTOCOL
+      #   name: extra-port
 
   resources:
     requests:
@@ -487,7 +503,11 @@ minionStateless:
     port: 9514
     protocol: TCP
     name: minion
-
+    extraPorts: []
+      # - containerPort: 1234
+      #   protocol: PROTOCOL
+      #   name: extra-port
+      
   resources:
     requests:
       memory: "1.25Gi"
