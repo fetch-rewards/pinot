@@ -57,7 +57,12 @@ spec:
       - name: server
         securityContext:
           {{- toYaml .Values.server.securityContext | nindent 10 }}
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        {{- if .Values.server.tag }} 
+        image: "{{ .Values.image.repository }}:{{ .Values.server.tag}}"
+        {{ else }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag}}" 
+        {{ end }}
+
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         args: [
           "{{ .Values.server.startCommand }}",

@@ -290,6 +290,7 @@ broker:
 server:
   name: server
   replicaCount: 1
+  # tag: override # uncomment this to override the image tag for this component 
   podManagementPolicy: Parallel
   podSecurityContext: {}
     # fsGroup: 2000
